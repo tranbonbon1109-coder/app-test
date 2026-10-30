@@ -21,7 +21,6 @@ jobs:
             -target NovaTestLab \
             -configuration Release \
             -sdk iphoneos \
-            -derivedDataPath build \
             CODE_SIGNING_ALLOWED=NO \
             build
 
