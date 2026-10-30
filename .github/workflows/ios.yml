@@ -14,11 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Build iOS App
+      - name: Check Project
+        run: |
+          ls -la
+          xcodebuild -list -project NovaTestLab.xcodeproj
+
+      - name: Build iOS
         run: |
           xcodebuild \
             -project NovaTestLab.xcodeproj \
-            -scheme NovaTestLab \
+            -target NovaTestLab \
             -configuration Release \
             -sdk iphoneos \
             -derivedDataPath build \
@@ -27,7 +32,7 @@ jobs:
 
       - name: Package IPA
         run: |
-          mkdir Payload
+          mkdir -p Payload
           cp -R build/Build/Products/Release-iphoneos/NovaTestLab.app Payload/
           zip -r NovaTestLab.ipa Payload
 
@@ -36,3 +41,4 @@ jobs:
         with:
           name: NovaTestLab-IPA
           path: NovaTestLab.ipa
+          retention-days: 14
