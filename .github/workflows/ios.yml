@@ -1,4 +1,3 @@
-
 name: Build Nova Test Lab IPA
 
 on:
@@ -23,7 +22,7 @@ jobs:
         run: |
           xcodebuild \
             -project NovaTestLab.xcodeproj \
-            -target NovaTestLab \
+            -scheme NovaTestLab \
             -configuration Release \
             -sdk iphoneos \
             -derivedDataPath build \
