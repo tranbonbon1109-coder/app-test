@@ -22,7 +22,7 @@ jobs:
         run: |
           xcodebuild \
             -project NovaTestLab.xcodeproj \
-            -scheme NovaTestLab \
+            -target NovaTestLab \
             -configuration Release \
             -sdk iphoneos \
             -derivedDataPath build \
